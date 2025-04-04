@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# blu Components
 
-## Getting Started
+A hands-on component library and learning platform for frontend development, built with Next.js 15, React, TypeScript, Shadcn UI, and Tailwind CSS.
 
-First, run the development server:
+## 🎯 Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+blu Components is about building and refining UI components while tracking personal development in frontend skills. This project takes a hands-on approach to learning and improving through practical implementation of modern web development techniques.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Modern Tech Stack**: Built with Next.js 15 App Router, React, TypeScript, Shadcn UI, and Tailwind CSS
+- **Component Library**: A growing collection of reusable, accessible UI components
+- **Learning Platform**: Each component serves as a practical example of frontend development concepts
+- **Dark Mode**: Full support for light and dark themes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **UI Library**: [React](https://react.dev/)
+- **Component Library**: [Shadcn UI](https://ui.shadcn.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Forms**: [Tanstack Form](https://tanstack.com/form/latest)
+- **Tables**: [Tanstack Table](https://tanstack.com/table/latest)
+- **Icons**: [Remix Icons](https://remixicon.com/)
+- **Avatars**: [Boring Avatars](https://boringavatars.com/)
 
-To learn more about Next.js, take a look at the following resources:
+## 🚦 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js 18.17 or later
+- npm, yarn, or pnpm
 
-## Deploy on Vercel
+### Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/yourusername/blu-components.git
+   cd blu-components
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## 📚 Learning Resources
+
+This project is designed to be both a component library and a learning resource. Each component includes:
+
+- Implementation details
+- Accessibility considerations
+- Responsive design patterns
+- Performance optimizations
+
+## 🤝 Contributing
+
+Contributions are welcome! Whether you're fixing a bug, adding a feature, or improving documentation, your help is appreciated.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- [Shadcn UI](https://ui.shadcn.com/) for the amazing library
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
