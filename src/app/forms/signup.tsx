@@ -21,14 +21,20 @@ import { Card, CardContent, CardTitle, CardHeader, CardDescription } from '@/com
 import Avatar from 'boring-avatars';
 
 const formSchema = z.object({
-  username: z.string(),
-  password: z.string(),
+  email: z.string().email({ message: 'Invalid email address.' }),
+  username: z.string().min(2, { message: 'Username must be at least 2 characters.' }).max(30, {
+    message: 'Username must be less than 30 characters.',
+  }),
+  password: z.string().min(8, { message: 'Password must be at least 8 characters.' }).max(30, {
+    message: 'Password must be less than 30 characters.',
+  }),
 });
 
-export function LoginForm() {
+export function SignUpForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      email: '',
       username: '',
       password: '',
     },
@@ -69,8 +75,8 @@ export function LoginForm() {
           ]}
           size={32}
         />
-        <CardTitle className="text-xl">Sign in to blu</CardTitle>
-        <CardDescription>Sign in to blu to continue.</CardDescription>
+        <CardTitle className="text-xl">Sign up to blu</CardTitle>
+        <CardDescription>Welcome! Create an account to get started.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -142,6 +148,26 @@ export function LoginForm() {
 
               <FormField
                 control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter your email"
+                        value={field.value || ''}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        name={field.name}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-xs" />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
                 name="username"
                 render={({ field }) => (
                   <FormItem>
@@ -186,12 +212,6 @@ export function LoginForm() {
               <Button type="submit" className="w-full">
                 Submit
               </Button>
-              <Link
-                href="/forms/"
-                className="text-sm text-muted-foreground hover:underline underline-offset-2"
-              >
-                Forgot password?
-              </Link>
             </div>
           </form>
         </Form>
