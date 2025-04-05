@@ -4,7 +4,6 @@ import {
   RiTable2,
   RiQuillPenAiLine,
   RiSettings6Line,
-  RiDatabase2Line,
 } from '@remixicon/react';
 import Avatar from 'boring-avatars';
 
@@ -16,7 +15,7 @@ export const navData: NavData = {
   },
   navMain: [
     {
-      name: 'dashboard',
+      name: 'home',
       url: '/',
       icon: RiHomeLine,
     },
@@ -34,11 +33,6 @@ export const navData: NavData = {
       name: 'settings',
       url: '/settings',
       icon: RiSettings6Line,
-    },
-    {
-      name: 'data tables',
-      url: '/data-tables',
-      icon: RiDatabase2Line,
     },
   ],
 };

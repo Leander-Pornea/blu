@@ -5,7 +5,8 @@ import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/layout/theme/theme-provider';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/layout/nav/app-sidebar';
-
+import { ActiveNavItem } from '@/components/layout/nav/active';
+import { Toaster } from 'sonner';
 const inter = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -33,12 +34,16 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar />
-            <header className="sticky top-0 flex h-14 shrink-0 items-center gap-2 bg-background">
-              <div className="flex flex-1 gap-2 px-3">
-                <SidebarTrigger />
-              </div>
-            </header>
-            {children}
+            <main className="flex flex-1 flex-col">
+              <header className="flex sticky top-0 shrink-0 items-center gap-2">
+                <div className="flex w-full items-center h-16 bg-background/80 backdrop-blur-sm px-3 mt-0">
+                  <SidebarTrigger />
+                  <ActiveNavItem />
+                </div>
+              </header>
+              <div className="flex flex-1 flex-col p-4 pt-0">{children}</div>
+            </main>
+            <Toaster />
           </SidebarProvider>
         </ThemeProvider>
       </body>

@@ -29,7 +29,12 @@ export function NavMain() {
               <SidebarMenuItem key={item.name}>
                 <SidebarMenuButton tooltip={item.name} isActive={isActive}>
                   <Link href={item.url} className="flex items-center gap-2">
-                    <Icon className={cn('mr-1.5 size-5 text-muted-foreground', isActive && 'text-primary')} />
+                    <Icon
+                      className={cn(
+                        'mr-1.5 size-5 text-muted-foreground',
+                        isActive && 'text-primary'
+                      )}
+                    />
                     <span className="text-sm font-medium text-muted-foreground">{item.name}</span>
                   </Link>
                 </SidebarMenuButton>
