@@ -949,7 +949,7 @@ export function CustomerForm() {
                           </TabsTrigger>
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent side="bottom" className="px-2 py-1 text-xs md:side-right">
+                      <TooltipContent side="right" className="px-2 py-1 text-xs">
                         Address
                       </TooltipContent>
                     </Tooltip>
@@ -971,7 +971,7 @@ export function CustomerForm() {
                           </TabsTrigger>
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent side="bottom" className="px-2 py-1 text-xs md:side-right">
+                      <TooltipContent side="right" className="px-2 py-1 text-xs">
                         Sales Information
                       </TooltipContent>
                     </Tooltip>
@@ -989,7 +989,7 @@ export function CustomerForm() {
                           </TabsTrigger>
                         </span>
                       </TooltipTrigger>
-                      <TooltipContent side="bottom" className="px-2 py-1 text-xs md:side-right">
+                      <TooltipContent side="right" className="px-2 py-1 text-xs">
                         Payment Information
                       </TooltipContent>
                     </Tooltip>
