@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/layout/theme/theme-provider';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/layout/nav/app-sidebar';
 import { ActiveNavItem } from '@/components/layout/nav/active';
-import { Toaster } from 'sonner';
+import { Toaster } from '@/components/ui/toaster';
 const inter = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',

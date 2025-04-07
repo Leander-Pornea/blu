@@ -44,20 +44,26 @@ export function SignUpForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    // 🚀
+    // ��
 
-    toast.success('Form submitted successfully', {
-      icon: null,
-      description: (
-        <div className="-mx-2">
-          <pre className="mt-2 p-4 overflow-x-auto">
-            <code className="text-sm whitespace-pre-wrap break-all font-mono">
-              {JSON.stringify(values, null, 2)}
-            </code>
-          </pre>
-        </div>
-      ),
-    });
+    toast.success(
+      <div className="flex flex-col gap-2 max-w-xs">
+        <div className="font-semibold">Account created successfully</div>
+        <pre
+          className="border shadow-md p-2 rounded-md overflow-auto max-h-40 whitespace-pre-wrap break-words"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {JSON.stringify(values, null, 2)}
+        </pre>
+      </div>,
+      {
+        icon: null,
+        duration: 5000, // Show for 5 seconds
+      }
+    );
   }
 
   return (
