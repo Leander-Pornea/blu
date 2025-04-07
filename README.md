@@ -1,38 +1,20 @@
 # blu Components
 
-A hands-on component library and learning platform for frontend development, built with Next.js 15, React, TypeScript, Shadcn UI, and Tailwind CSS.
+blu is a component library for tracking personal development in frontend skills.
 
-## 🎯 Purpose
+## features
 
-blu Components is about building and refining UI components while tracking personal development in frontend skills. This project takes a hands-on approach to learning and improving through practical implementation of modern web development techniques.
+- **dark mode**: full support for light and dark themes
+- **partial size responsiveness**: haven't add full support for mobile/smaller screen sizes for now 
 
-## 🚀 Features
+## getting started
 
-- **Modern Tech Stack**: Built with Next.js 15 App Router, React, TypeScript, Shadcn UI, and Tailwind CSS
-- **Component Library**: A growing collection of reusable, accessible UI components
-- **Learning Platform**: Each component serves as a practical example of frontend development concepts
-- **Dark Mode**: Full support for light and dark themes
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **UI Library**: [React](https://react.dev/)
-- **Component Library**: [Shadcn UI](https://ui.shadcn.com/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Forms**: [Tanstack Form](https://tanstack.com/form/latest)
-- **Tables**: [Tanstack Table](https://tanstack.com/table/latest)
-- **Icons**: [Remix Icons](https://remixicon.com/)
-- **Avatars**: [Boring Avatars](https://boringavatars.com/)
-
-## 🚦 Getting Started
-
-### Prerequisites
+### prerequisites
 
 - Node.js 18.17 or later
 - npm, yarn, or pnpm
 
-### Installation
+### installation
 
 1. Clone the repository:
 
@@ -63,25 +45,19 @@ blu Components is about building and refining UI components while tracking perso
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## 📚 Learning Resources
-
-This project is designed to be both a component library and a learning resource. Each component includes:
-
-- Implementation details
-- Accessibility considerations
-- Responsive design patterns
-- Performance optimizations
-
-## 🤝 Contributing
+## contributions
 
 Contributions are welcome! Whether you're fixing a bug, adding a feature, or improving documentation, your help is appreciated.
 
-## 📝 License
+## license
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## acknowledgments
 
 - [Shadcn UI](https://ui.shadcn.com/) for the amazing library
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Boring Avatars](https://boringavatars.com/)
+- [Tanstack Form](https://tanstack.com/form/latest)
+- [Tanstack Table](https://tanstack.com/table/latest)

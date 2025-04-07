@@ -61,7 +61,7 @@ export function SignUpForm() {
   }
 
   return (
-    <Card className="w-sm">
+    <Card className="sm:w-auto md:w-sm flex flex-col h-full">
       <CardHeader>
         <Avatar
           name="Blu"
@@ -78,9 +78,9 @@ export function SignUpForm() {
         <CardTitle className="text-xl">Sign up to blu</CardTitle>
         <CardDescription>Welcome! Create an account to get started.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex flex-col flex-grow">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col h-full">
             <div className="flex flex-col gap-4">
               <div className="flex flex-1 flex-row gap-2 w-full">
                 <Link
@@ -145,46 +145,47 @@ export function SignUpForm() {
                 </Link>
               </div>
               <Separator orientation="horizontal" className="my-2" />
+              <div className="flex flex-col md:flex-row gap-4 items-start">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Enter your email"
+                          value={field.value || ''}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          name={field.name}
+                        />
+                      </FormControl>
+                      <FormMessage className="text-xs" />
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter your email"
-                        value={field.value || ''}
-                        onChange={field.onChange}
-                        onBlur={field.onBlur}
-                        name={field.name}
-                      />
-                    </FormControl>
-                    <FormMessage className="text-xs" />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Username</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter your username"
-                        value={field.value || ''}
-                        onChange={field.onChange}
-                        onBlur={field.onBlur}
-                        name={field.name}
-                      />
-                    </FormControl>
-                    <FormMessage className="text-xs" />
-                  </FormItem>
-                )}
-              />
+                <FormField
+                  control={form.control}
+                  name="username"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Username</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Create a username"
+                          value={field.value || ''}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          name={field.name}
+                        />
+                      </FormControl>
+                      <FormMessage className="text-xs" />
+                    </FormItem>
+                  )}
+                />
+              </div>
 
               <FormField
                 control={form.control}
@@ -195,7 +196,7 @@ export function SignUpForm() {
                     <FormControl>
                       <Input
                         type="password"
-                        placeholder="Enter your password"
+                        placeholder="Create a password"
                         value={field.value || ''}
                         onChange={field.onChange}
                         onBlur={field.onBlur}
@@ -208,10 +209,16 @@ export function SignUpForm() {
               />
             </div>
 
-            <div className="flex flex-col justify-between items-center gap-2">
+            <div className="flex flex-col justify-end items-center gap-2 mt-auto">
               <Button type="submit" className="w-full">
-                Submit
+                Create an account
               </Button>
+              <Link
+                href="/forms/"
+                className="text-sm text-muted-foreground hover:underline underline-offset-2"
+              >
+                Already have an account? Sign in
+              </Link>
             </div>
           </form>
         </Form>

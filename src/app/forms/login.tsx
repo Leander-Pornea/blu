@@ -21,7 +21,7 @@ import { Card, CardContent, CardTitle, CardHeader, CardDescription } from '@/com
 import Avatar from 'boring-avatars';
 
 const formSchema = z.object({
-  username: z.string(),
+  username: z.string().min(1, { message: 'Username is required' }),
   password: z.string(),
 });
 
@@ -55,7 +55,7 @@ export function LoginForm() {
   }
 
   return (
-    <Card className="w-sm">
+    <Card className="w-full sm:w-auto md:w-sm flex flex-col h-full">
       <CardHeader>
         <Avatar
           name="Blu"
@@ -72,11 +72,11 @@ export function LoginForm() {
         <CardTitle className="text-xl">Sign in to blu</CardTitle>
         <CardDescription>Sign in to blu to continue.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex flex-col flex-grow">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-1 flex-row gap-2 w-full">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col h-full">
+            <div className="flex flex-col gap-4 flex-grow">
+              <div className="flex flex-row gap-2 w-full">
                 <Link
                   href="/forms/"
                   className="flex-1"
@@ -182,9 +182,9 @@ export function LoginForm() {
               />
             </div>
 
-            <div className="flex flex-col justify-between items-center gap-2">
+            <div className="flex flex-col justify-end items-center gap-2 mt-auto">
               <Button type="submit" className="w-full">
-                Submit
+                Sign in
               </Button>
               <Link
                 href="/forms/"
