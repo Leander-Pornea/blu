@@ -35,7 +35,7 @@ export default function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             <main className="flex flex-1 flex-col">
-              <header className="flex sticky top-0 shrink-0 items-center gap-2">
+              <header className="flex sticky top-0 shrink-0 items-center gap-2 z-50">
                 <div className="flex w-full items-center h-16 bg-background/80 backdrop-blur-sm px-3 mt-0">
                   <SidebarTrigger />
                   <ActiveNavItem />

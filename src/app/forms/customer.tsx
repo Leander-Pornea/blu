@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, UseFormReturn } from 'react-hook-form';
 import { z } from 'zod';
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 
@@ -157,7 +157,7 @@ function BasicInformationSection({ form }: { form: UseFormReturn<z.infer<typeof 
     <div className="flex flex-col gap-6">
       <div className="flex flex-col md:flex-row gap-6 w-full items-start">
         {/* ID */}
-        <FormField
+        <MemoizedFormField
           control={form.control}
           name="id"
           render={({ field }) => (
@@ -177,7 +177,7 @@ function BasicInformationSection({ form }: { form: UseFormReturn<z.infer<typeof 
           )}
         />
         {/* Customer Name */}
-        <FormField
+        <MemoizedFormField
           control={form.control}
           name="customerName"
           render={({ field }) => (
@@ -199,7 +199,7 @@ function BasicInformationSection({ form }: { form: UseFormReturn<z.infer<typeof 
       </div>
       <div className="flex flex-col md:flex-row gap-6 w-full items-start">
         {/* Customer Group */}
-        <FormField
+        <MemoizedFormField
           control={form.control}
           name="customerGroup"
           render={({ field }) => (
@@ -226,7 +226,7 @@ function BasicInformationSection({ form }: { form: UseFormReturn<z.infer<typeof 
           )}
         />
         {/* Customer Type */}
-        <FormField
+        <MemoizedFormField
           control={form.control}
           name="customerType"
           render={({ field }) => (
@@ -255,7 +255,7 @@ function BasicInformationSection({ form }: { form: UseFormReturn<z.infer<typeof 
       </div>
       <div className="flex flex-row gap-2 w-full items-center">
         {/* Active Status */}
-        <FormField
+        <MemoizedFormField
           control={form.control}
           name="status"
           render={({ field }) => (
@@ -277,6 +277,9 @@ function BasicInformationSection({ form }: { form: UseFormReturn<z.infer<typeof 
   );
 }
 
+// Create a memoized version of FormField to prevent unnecessary re-renders
+const MemoizedFormField = React.memo(FormField) as typeof FormField;
+
 // Address Information Tab Content
 function AddressInformationTab({
   form,
@@ -294,7 +297,7 @@ function AddressInformationTab({
       <div className="flex flex-col gap-4 flex-grow">
         {/* Billing Address */}
         <div className="flex flex-col md:flex-row gap-4 items-start">
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="billingAddress"
             render={({ field }) => (
@@ -332,7 +335,7 @@ function AddressInformationTab({
             )}
           />
           {/* Shipping Address */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="shippingAddress"
             render={({ field }) => (
@@ -355,7 +358,7 @@ function AddressInformationTab({
         </div>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Office Phone */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="officePhone"
             render={({ field }) => (
@@ -375,7 +378,7 @@ function AddressInformationTab({
             )}
           />
           {/* Warehouse Phone */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="warehousePhone"
             render={({ field }) => (
@@ -397,7 +400,7 @@ function AddressInformationTab({
         </div>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Email */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="email"
             render={({ field }) => (
@@ -417,7 +420,7 @@ function AddressInformationTab({
             )}
           />
           {/* Website */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="website"
             render={({ field }) => (
@@ -439,7 +442,7 @@ function AddressInformationTab({
         </div>
         <div className="flex flex-col gap-4 items-start">
           {/* Map Location */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="mapLocation"
             render={({ field }) => (
@@ -485,7 +488,7 @@ function SalesInformationTab({ form }: { form: UseFormReturn<z.infer<typeof form
       <div className="flex flex-col gap-4 flex-grow">
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Salesman */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="salesman"
             render={({ field }) => (
@@ -512,7 +515,7 @@ function SalesInformationTab({ form }: { form: UseFormReturn<z.infer<typeof form
             )}
           />
           {/* Price Type */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="priceType"
             render={({ field }) => (
@@ -541,7 +544,7 @@ function SalesInformationTab({ form }: { form: UseFormReturn<z.infer<typeof form
         </div>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* VAT Type */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="vatType"
             render={({ field }) => (
@@ -568,7 +571,7 @@ function SalesInformationTab({ form }: { form: UseFormReturn<z.infer<typeof form
             )}
           />
           {/* TIN Number */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="tinNo"
             render={({ field }) => (
@@ -590,7 +593,7 @@ function SalesInformationTab({ form }: { form: UseFormReturn<z.infer<typeof form
         </div>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Business Entity */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="businessEntity"
             render={({ field }) => (
@@ -618,7 +621,7 @@ function SalesInformationTab({ form }: { form: UseFormReturn<z.infer<typeof form
           />
         </div>
         {/* Deduct EWT */}
-        <FormField
+        <MemoizedFormField
           control={form.control}
           name="deductEWT"
           render={({ field }) => (
@@ -651,7 +654,7 @@ function PaymentInformationTab({ form }: { form: UseFormReturn<z.infer<typeof fo
       <div className="flex flex-col gap-4 flex-grow">
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Credit Limit */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="creditLimit"
             render={({ field }) => (
@@ -672,7 +675,7 @@ function PaymentInformationTab({ form }: { form: UseFormReturn<z.infer<typeof fo
             )}
           />
           {/* Credit Terms */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="creditTerms"
             render={({ field }) => (
@@ -702,7 +705,7 @@ function PaymentInformationTab({ form }: { form: UseFormReturn<z.infer<typeof fo
         </div>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           {/* Bank Name */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="bankName"
             render={({ field }) => (
@@ -722,7 +725,7 @@ function PaymentInformationTab({ form }: { form: UseFormReturn<z.infer<typeof fo
             )}
           />
           {/* Bank Account Number */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="bankAccountNo"
             render={({ field }) => (
@@ -744,7 +747,7 @@ function PaymentInformationTab({ form }: { form: UseFormReturn<z.infer<typeof fo
         </div>
         <div className="flex flex-col gap-4 items-start">
           {/* Bank Account Name */}
-          <FormField
+          <MemoizedFormField
             control={form.control}
             name="bankAccountName"
             render={({ field }) => (
@@ -776,7 +779,7 @@ export function CustomerForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      id: 'C' + Math.floor(Math.random() * 9000 + 1000),
+      id: '',
       customerName: '',
       status: false,
       creditLimit: 0,
@@ -785,23 +788,15 @@ export function CustomerForm() {
       bankAccountNo: '',
       bankAccountName: '',
     },
-    mode: 'onChange',
+    mode: 'onBlur',
   });
 
   // Track form progress
   const [formProgress, setFormProgress] = React.useState(0);
 
-  // Watch form values for progress calculation
-  const watchedValues = form.watch();
-
-  // Update progress when form values change
-  React.useEffect(() => {
-    const values = form.getValues();
-    let progress = 0;
-    let totalWeight = 0;
-
-    // Define required fields and their weights
-    const requiredFields = [
+  // Define required fields and their weights - memoize this to prevent recreation
+  const requiredFields = useMemo(
+    () => [
       // Basic Information
       { field: 'id' as keyof z.infer<typeof formSchema>, weight: 10 },
       { field: 'customerName' as keyof z.infer<typeof formSchema>, weight: 10 },
@@ -827,28 +822,69 @@ export function CustomerForm() {
       { field: 'bankName' as keyof z.infer<typeof formSchema>, weight: 5 },
       { field: 'bankAccountNo' as keyof z.infer<typeof formSchema>, weight: 5 },
       { field: 'bankAccountName' as keyof z.infer<typeof formSchema>, weight: 5 },
-    ];
+    ],
+    []
+  );
 
-    // Calculate total weight and progress
-    requiredFields.forEach(({ field, weight }) => {
-      totalWeight += weight;
-      if (values[field]) progress += weight;
-    });
+  // Memoize the progress calculation function
+  const calculateProgress = useCallback(
+    (values: z.infer<typeof formSchema>) => {
+      let progress = 0;
+      let totalWeight = 0;
 
-    // Calculate percentage and ensure it doesn't exceed 100%
-    const percentage = Math.min(Math.round((progress / totalWeight) * 100), 100);
-    setFormProgress(percentage);
-  }, [form, watchedValues]);
+      // Calculate total weight and progress
+      requiredFields.forEach(({ field, weight }) => {
+        totalWeight += weight;
+        if (values[field]) progress += weight;
+      });
+
+      // Calculate percentage and ensure it doesn't exceed 100%
+      return Math.min(Math.round((progress / totalWeight) * 100), 100);
+    },
+    [requiredFields]
+  );
+
+  // Use a ref to store the timeout ID
+  const progressTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  // Optimize form progress calculation
+  // Instead of watching all fields, only watch the specific fields we need for progress
+  const watchedFields = useMemo(() => requiredFields.map(field => field.field), [requiredFields]);
+
+  // Watch only the required fields for progress calculation with a longer debounce
+  const watchedValues = form.watch(watchedFields);
+
+  // Update progress when form values change with a longer debounce
+  React.useEffect(() => {
+    // Clear any existing timeout
+    if (progressTimeoutRef.current) {
+      clearTimeout(progressTimeoutRef.current);
+    }
+
+    // Set a new timeout to calculate progress after a longer delay
+    progressTimeoutRef.current = setTimeout(() => {
+      const values = form.getValues();
+      const percentage = calculateProgress(values);
+      setFormProgress(percentage);
+    }, 500); // Increased debounce from 300ms to 500ms
+
+    // Clean up the timeout on unmount or when values change
+    return () => {
+      if (progressTimeoutRef.current) {
+        clearTimeout(progressTimeoutRef.current);
+      }
+    };
+  }, [form, watchedValues, calculateProgress]);
 
   // Copy billing address to shipping address
-  const copyBillingToShipping = () => {
+  const copyBillingToShipping = useCallback(() => {
     const billingAddress = form.getValues('billingAddress');
     form.setValue('shippingAddress', billingAddress, { shouldDirty: true, shouldValidate: true });
 
     toast.success('Address copied', {
       icon: <RiFileCopy2Line className="h-4 w-4" />,
     });
-  };
+  }, [form]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
